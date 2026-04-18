@@ -3,19 +3,9 @@
 <package format="3">
   <name>task2</name>
   <version>0.0.0</version>
-  <description>Differential drive robot using STL meshes and Gazebo</description>
+  <description>TODO: Package description</description>
   <maintainer email="yash22.mitmpl2025@learner.manipal.edu">yash</maintainer>
-  <license>Apache-2.0</license>
-
-  <buildtool_depend>ament_python</buildtool_depend>
-
-  <exec_depend>robot_state_publisher</exec_depend>
-  <exec_depend>joint_state_publisher</exec_depend>
-  <exec_depend>xacro</exec_depend>
-  <exec_depend>rviz2</exec_depend>
-
-  <exec_depend>gazebo_ros</exec_depend>
-  <exec_depend>gazebo_plugins</exec_depend>
+  <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
