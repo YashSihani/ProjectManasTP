@@ -16,11 +16,11 @@ FRONT_BRAKE_DIST = 0.6   # m    — obstacle trigger distance (front)
 SIDE_CLEAR_DIST = 0.62    # m    — shoulder distance to consider obstacle cleared
 SIDE_WALL_DIST = 0.62  # m    — wall still present threshold
 GOAL_TOL = 0.05   # m    — per-axis goal tolerance
-ALIGN_TOL = 0.05   # rad  — heading tolerance (must be > 1 tick = 0.02 rad)
+ALIGN_TOL = 0.05   # rad  — heading tolerance
 DRIFT_TOL = 0.05   # rad  — heading drift allowed during straight movement
 SETTLE = 0.3    # s    — pause after stopping before next command
 FEEDBACK_PERIOD = 0.5    # s    — feedback publish rate
-POSE_STALE_LIMIT = 0.06   # s    — skip control tick if pose older than this
+POSE_STALE_LIMIT = 0.06   # s
 
 
 class ManhattanServer(Node):
@@ -42,7 +42,7 @@ class ManhattanServer(Node):
         # Timing
         self.settle_end = 0.0
         self.last_feedback_time = 0.0
-        self.last_pose_time = 0.0    # set in pose_cb, used for staleness check
+        self.last_pose_time = 0.0    # set in pose_cb, used for stale check
 
         # Action
         self.active_goal_handle = None
@@ -115,7 +115,7 @@ class ManhattanServer(Node):
     def resume_state(self) -> str:
         if self.avoidance_axis == 'Y':
             if not self.y_done():
-                return 'ALIGN_Y'  # just keep going in Y, don't touch X
+                return 'ALIGN_Y'
             if not self.x_done():
                 return 'ALIGN_X'
             return 'SUCCESS'
@@ -130,7 +130,6 @@ class ManhattanServer(Node):
         self.stop()
         time.sleep(0.15)
         """Choose swerve direction and start avoidance turn."""
-        # Prefer the side with more room; use goal Y as tiebreaker
         if self.dist_right < SIDE_WALL_DIST:
             direction = 'left'
         elif self.dist_left < SIDE_WALL_DIST:
