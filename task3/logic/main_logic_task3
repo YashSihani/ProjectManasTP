@@ -1,0 +1,6 @@
+1st preference : take left turn 
+	after aligned to left , assign theta as 0 degree . 
+		case1: passage found and bot's orientation <180 degree, then while returning, the bot aligns to left while entering that circle.
+		case2: passage found and bot's orientation >90 degree, then while retunring, the bot aligns to right while enetering that circle.
+		case3: it hits a wall. bot turns 180 degree .
+		

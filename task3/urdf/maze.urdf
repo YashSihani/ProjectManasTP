@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot name="my_maze">
+
+  <link name="maze_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="10.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/yash/ros2_ws/src/task3/meshes/maze_v1.stl" scale="0.3 0.3 0.3"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/yash/ros2_ws/src/task3/meshes/maze_v1.stl" scale="0.3 0.3 0.3"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="maze_link">
+    <static>true</static>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+</robot>
