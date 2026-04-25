@@ -1,6 +1,14 @@
-1st preference : take left turn 
-	after aligned to left , assign theta as 0 degree . 
-		case1: passage found and bot's orientation <180 degree, then while returning, the bot aligns to left while entering that circle.
-		case2: passage found and bot's orientation >90 degree, then while retunring, the bot aligns to right while enetering that circle.
-		case3: it hits a wall. bot turns 180 degree .
-		
+we make an empty array(stack following lifo) named 'memory' 
+1st preference : take right turn 
+	after aligned to right , we record theta1 . 
+		case1: passage found and bot's orientation is theta2 and theta2-theta1 <=180 degree, store 1 in the array as the path taken was the shortest path. 
+		case2: passage found and bot's orientation is theta2 and theta2-theta1 >180 degree, store -1 in the array as the path taken was not the shortest path. 
+		case3: it hits a wall. bot turns 180 degree and flips right side hug i.e. if it was 1 so flip to -1 and vice versa.
+
+then while coming out the bot sees the passage in the outer wall , and if there is a passage , it dives in .
+after dive cross state is completed then comes the main part , which way does the bot turn to ...
+	we access the elements of the array that we made while coming into the maze , and multiply it to the ((math.pi - 0.2) / 2.0) * self.right_side_hug, this leads to either a left turn or a right turn 
+	case1: if the element was -1 , this will result in left turn 
+	case2: if the element was 1 , this will result in right turn
+	
+	

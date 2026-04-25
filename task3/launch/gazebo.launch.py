@@ -25,7 +25,9 @@ def generate_launch_description():
     spawn_maze = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-file', maze_urdf_path, '-entity', 'maze_world', '-x', '16', '-y', '6.5', '-z', '1'],
+        arguments=['-file', maze_urdf_path, '-entity', 'maze_world', '-x', '16', '-y', '6.0', '-z', '1'],
+        parameters=[
+                {'use_sim_time': True}],
         output='screen'
     )
 

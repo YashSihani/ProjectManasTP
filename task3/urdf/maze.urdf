@@ -11,14 +11,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file:///home/yash/ros2_ws/src/task3/meshes/maze_v1.stl" scale="0.3 0.3 0.3"/>
+        <mesh filename="file:///home/yash/ros2_ws/src/task3/meshes/maze_v1.stl" scale="0.03 0.03 0.03"/>
       </geometry>
     </visual>
 
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file:///home/yash/ros2_ws/src/task3/meshes/maze_v1.stl" scale="0.3 0.3 0.3"/>
+        <mesh filename="file:///home/yash/ros2_ws/src/task3/meshes/maze_v1.stl" scale="0.03 0.03 0.03"/>
       </geometry>
     </collision>
   </link>
